@@ -1,6 +1,6 @@
 # The Union of Murder Drones
 
-<span class="umd-notice">📢 本群正式加入 The Union of Murder Drones</span>
+<!-- <span class="umd-notice">📢 本群正式加入 The Union of Murder Drones</span> -->
 
 ## 🤖 给小白介绍
 
