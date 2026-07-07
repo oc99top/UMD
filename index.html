@@ -3,405 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Union of Murder Drones · 重建公告</title>
-  <!-- 柔和风格，干净排版 -->
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <title>The Union of Murder Drones · 文档</title>
+  
+  <!-- Docsify 核心 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  
+  <!-- 自定义 UMD 主题（基于您的设计） -->
+  <link rel="stylesheet" href="theme-umd.css">
+  
+  <!-- 字体图标（可选） -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@7/css/materialdesignicons.min.css">
 
-    body {
-      background: #f5f3f0;
-      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 2rem 1rem;
-      line-height: 1.5;
-      color: #1e1e2a;
-    }
-
-    .card {
-      max-width: 1000px;
-      width: 100%;
-      background: #ffffff;
-      border-radius: 32px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06), 0 8px 20px rgba(0, 0, 0, 0.03);
-      padding: 2.5rem 2.8rem;
-      transition: all 0.2s ease;
-      border: 1px solid rgba(220, 210, 200, 0.25);
-    }
-
-    /* logo 区域 + 标题 */
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-      border-bottom: 2px solid #eae5df;
-      padding-bottom: 1.8rem;
-      margin-bottom: 2.2rem;
-    }
-
-    .logo-wrapper {
-      flex-shrink: 0;
-      width: 80px;
-      height: 80px;
-      background: #f0ede8;
-      border-radius: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
-    }
-
-    .logo-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    .title-group {
-      flex: 1;
-    }
-
-    .title-group h1 {
-      font-size: 2rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: #1b1b26;
-      line-height: 1.2;
-    }
-
-    .title-group .subhead {
-      font-size: 0.95rem;
-      color: #5e5a6b;
-      margin-top: 4px;
-      font-weight: 400;
-      background: #f2efe9;
-      display: inline-block;
-      padding: 0.2rem 1rem;
-      border-radius: 40px;
-      letter-spacing: 0.3px;
-    }
-
-    /* 公告/公告块 */
-    .notice-badge {
-      background: #eae3da;
-      color: #2f2a3d;
-      font-size: 0.8rem;
-      font-weight: 500;
-      padding: 0.3rem 1.2rem;
-      border-radius: 30px;
-      display: inline-block;
-      margin-bottom: 1.8rem;
-      letter-spacing: 0.3px;
-      border: 1px solid #d6cec2;
-    }
-
-    /* 通用章节 */
-    .section {
-      margin-bottom: 2.8rem;
-    }
-
-    .section-title {
-      font-size: 1.35rem;
-      font-weight: 600;
-      margin-bottom: 1.2rem;
-      color: #1f1b2b;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .section-title .num {
-      background: #dad2c6;
-      color: #2d2838;
-      font-size: 0.9rem;
-      font-weight: 600;
-      width: 28px;
-      height: 28px;
-      border-radius: 30px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .section p, .section li {
-      color: #2b2738;
-      font-size: 1rem;
-    }
-
-    .content-block {
-      background: #faf8f6;
-      padding: 1.6rem 2rem;
-      border-radius: 24px;
-      border: 1px solid #ede8e1;
-    }
-
-    .content-block ul, .content-block ol {
-      padding-left: 1.5rem;
-      margin: 0.6rem 0;
-    }
-
-    .content-block li {
-      margin-bottom: 0.5rem;
-    }
-
-    .content-block li:last-child {
-      margin-bottom: 0;
-    }
-
-    .highlight-box {
-      background: #f2efe9;
-      border-left: 5px solid #b8aaa0;
-      padding: 1.2rem 1.8rem;
-      border-radius: 18px;
-      margin: 1.2rem 0 0.4rem;
-      font-size: 0.98rem;
-    }
-
-    .highlight-box strong {
-      color: #1d1a28;
-    }
-
-    .badge-warning {
-      background: #d9d0c4;
-      color: #1d1929;
-      font-weight: 500;
-      padding: 0.1rem 0.6rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem 1.8rem;
-      margin-top: 0.8rem;
-    }
-
-    .contact-item {
-      background: #f5f1ec;
-      padding: 0.8rem 1.2rem;
-      border-radius: 60px;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      border: 1px solid #e2dbd2;
-      font-size: 0.95rem;
-      transition: background 0.1s ease;
-    }
-
-    .contact-item .label {
-      font-weight: 500;
-      color: #3d3647;
-      min-width: 70px;
-    }
-
-    .contact-item .value {
-      font-family: 'SF Mono', 'JetBrains Mono', monospace;
-      background: #eae3da;
-      padding: 0.2rem 0.9rem;
-      border-radius: 40px;
-      color: #1f1b2b;
-      font-weight: 500;
-      letter-spacing: 0.2px;
-    }
-
-    .footnote {
-      margin-top: 2.5rem;
-      padding-top: 1.8rem;
-      border-top: 1px solid #e4ddd5;
-      font-size: 0.9rem;
-      color: #5a5366;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footnote small {
-      display: inline-block;
-    }
-
-    .footnote .reconstruct-tag {
-      background: #e1d9d0;
-      padding: 0.2rem 1.2rem;
-      border-radius: 60px;
-      font-weight: 400;
-      color: #2a2538;
-      font-size: 0.8rem;
-      border: 1px solid #cec4b7;
-    }
-
-    @media (max-width: 700px) {
-      .card {
-        padding: 1.8rem;
-      }
-      .header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.8rem;
-      }
-      .logo-wrapper {
-        width: 70px;
-        height: 70px;
-      }
-      .title-group h1 {
-        font-size: 1.7rem;
-      }
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 0.8rem;
-      }
-      .content-block {
-        padding: 1.2rem 1.2rem;
-      }
-    }
-
-    @media (max-width: 450px) {
-      .card {
-        padding: 1.2rem;
-      }
-      .section-title {
-        font-size: 1.2rem;
-      }
-      .contact-item {
-        flex-wrap: wrap;
-        gap: 0.4rem;
-        border-radius: 30px;
-        padding: 0.7rem 1rem;
-      }
-      .contact-item .label {
-        min-width: 60px;
-      }
-    }
-
-    /* 点缀 */
-    .accent-dot {
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      background: #b7a99c;
-      border-radius: 10px;
-      margin-right: 6px;
-    }
-  </style>
+  <!-- Logo 预加载 -->
+  <link rel="icon" href="./blogo.webp" type="image/webp">
 </head>
 <body>
-  <div class="card">
-    <!-- 头部：logo + 标题 -->
-    <div class="header">
-      <div class="logo-wrapper">
-        <!-- logo 路径 ./blogo.webp -->
-        <img src="./blogo.webp" alt="U.M.D. Logo" loading="lazy">
-      </div>
-      <div class="title-group">
-        <h1>The Union of Murder Drones</h1>
-        <span class="subhead">⚡ 重建 · 老牌组织 · 为爱发电</span>
-      </div>
-    </div>
+  <!-- Docsify 挂载点 -->
+  <div id="app"></div>
 
-    <!-- 公告横幅 -->
-    <div class="notice-badge">
-      📢 本群正式加入 The Union of Murder Drones
-    </div>
+  <script>
+    window.$docsify = {
+      // ===== 基础配置 =====
+      name: 'U.M.D.',
+      nameLink: '/',
+      logo: './blogo.webp',
+      repo: '',  // 如果有 GitHub 仓库可填
+      
+      // ===== 侧边栏 =====
+      loadSidebar: '_sidebar.md',
+      sidebarDisplayLevel: 1,
+      
+      // ===== 导航 =====
+      auto2top: true,
+      relativePath: true,
+      
+      // ===== 搜索 =====
+      search: {
+        placeholder: '搜索文档...',
+        noData: '没有找到相关结果',
+        depth: 3
+      },
+      
+      // ===== 代码高亮 =====
+      highlight: {
+        copy: true,
+        copyText: '复制代码'
+      },
+      
+      // ===== 主题 =====
+      themeColor: '#b8aaa0',
+      
+      // ===== 封面 =====
+      coverpage: false,
+      
+      // ===== 页脚 =====
+      footer: {
+        copy: '© 2026 U.M.D. · 老牌组织 · 为爱发电',
+        align: 'center'
+      },
+      
+      // ===== 其他 =====
+      notFoundPage: true,
+      topMargin: 0,
+      maxLevel: 4,
+      subMaxLevel: 3
+    }
+  </script>
 
-    <!-- 一、给小白介绍 -->
-    <div class="section">
-      <div class="section-title">
-        <span class="num">一</span> 给小白介绍
-      </div>
-      <div class="content-block">
-        <p style="font-size: 1.02rem;">
-          <strong>The Union of Murder Drones</strong> 是为了帮助无机圈子的<strong>民办组织</strong>，
-          组织内的人都是<strong>为爱发电</strong>。我们并不是虚拟国，也不会让任何人把无机圈子变成虚拟国。
-        </p>
-        <div style="margin-top: 0.8rem; background: #f0ebe4; padding: 0.6rem 1.2rem; border-radius: 30px; display: inline-block; font-size: 0.9rem;">
-          🤖 无机 · 互助 · 非虚拟国
-        </div>
-      </div>
-    </div>
-
-    <!-- 二、加入有利条件 -->
-    <div class="section">
-      <div class="section-title">
-        <span class="num">二</span> 加入有利条件
-      </div>
-      <div class="content-block">
-        <ol style="list-style-type: decimal; font-weight: 400;">
-          <li><strong>任何群内矛盾</strong>，可以交由变革后的 U.M.D. 维和部门处理</li>
-          <li>
-            U.M.D. 会通过提醒管理员（如若该成员有管理员则会直接撤回）来撤回群内任何片群宣传、擦边照片
-          </li>
-          <li style="font-weight: 500; background: #ede8e0; padding: 0.2rem 0.8rem; border-radius: 40px; display: inline-block; margin-top: 0.2rem;">
-            ⚠️ 加入 U.M.D. 的群聊，可以在其他 U.M.D. 成员群中宣传自己的群聊，但也要适度，太过频繁也不可以
-          </li>
-        </ol>
-        <div class="highlight-box" style="margin-top: 1rem;">
-          <span style="font-weight: 500;">🛡️ U.M.D. 不会干预群内任何群聊自己的处理事物</span>，U.M.D. 只负责帮助、提醒。
-        </div>
-      </div>
-    </div>
-
-    <!-- 三、U.M.D. 公告 -->
-    <div class="section">
-      <div class="section-title">
-        <span class="num">三</span> U.M.D. 公告
-      </div>
-      <div class="content-block" style="padding-bottom: 0.8rem;">
-        <p style="margin-bottom: 1rem; font-weight: 450;">
-          如果您想参与、举报或建议，请通过以下方式联系：
-        </p>
-
-        <!-- 网格联系方式 -->
-        <div class="contact-grid">
-          <div class="contact-item">
-            <span class="label">📩 加入</span>
-            <span class="value">20750699</span>
-            <span style="font-size: 0.75rem; color: #4f485a; margin-left: auto;">私信</span>
-          </div>
-          <div class="contact-item">
-            <span class="label">📛 举报</span>
-            <span class="value">2565946739</span>
-            <span style="font-size: 0.75rem; color: #4f485a; margin-left: auto;">工作人员</span>
-          </div>
-          <div class="contact-item" style="grid-column: 1 / -1;">
-            <span class="label">💬 建议</span>
-            <span class="value">20750699</span>
-            <span style="font-size: 0.75rem; color: #4f485a; margin-left: auto;">直线 · 议会长</span>
-          </div>
-        </div>
-
-        <!-- 补充说明 -->
-        <div style="margin-top: 1.5rem; padding: 0.8rem 1.2rem; background: #eae3da; border-radius: 40px; font-size: 0.95rem; display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
-          <span style="background: #2f2a38; color: #f2ede6; padding: 0.1rem 0.6rem; border-radius: 30px; font-size: 0.7rem; font-weight: 600;">重建中</span>
-          <span>U.M.D. 现在仍然有很多问题，但是我们正在努力改进，也希望各位可以多一份包容，或者可以找我们直接指出我们的问题和缺点。</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 额外：公告汇总 / 重建标识 -->
-    <div class="footnote">
-      <span>
-        <span class="accent-dot"></span> 老牌组织 · 重建进行中
-      </span>
-      <span class="reconstruct-tag">
-        ⚙️ 继承 · 发扬 · 为爱发电
-      </span>
-      <small style="color: #6a6278;">© 2026 U.M.D. 公告页面</small>
-    </div>
-
-    <!-- 微交互：显示“静态 · 信息页” -->
-    <div style="margin-top: 1rem; font-size: 0.7rem; color: #9b9286; text-align: right; letter-spacing: 0.5px; border-top: 1px dashed #e0d8ce; padding-top: 0.8rem;">
-      <span>✦ 静态 HTML · 基于重建公告 ✦</span>
-    </div>
-  </div>
+  <!-- Docsify 核心脚本 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  
+  <!-- 插件：搜索 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+  
+  <!-- 插件：复制代码 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2"></script>
+  
+  <!-- 插件：页脚（如果使用） -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-footer@1/footer.min.js"></script>
 </body>
 </html>

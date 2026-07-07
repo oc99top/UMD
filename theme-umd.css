@@ -1,0 +1,254 @@
+/* ============================================================
+   U.M.D. Docsify 主题 —— 基于您的设计风格
+   ============================================================ */
+
+/* ---------- 全局色调 ---------- */
+:root {
+  --umd-bg: #f5f3f0;
+  --umd-card-bg: #ffffff;
+  --umd-border: rgba(220, 210, 200, 0.25);
+  --umd-text: #1e1e2a;
+  --umd-text-secondary: #5e5a6b;
+  --umd-accent: #b8aaa0;
+  --umd-accent-light: #eae3da;
+  --umd-block-bg: #faf8f6;
+  --umd-highlight-bg: #f2efe9;
+}
+
+/* ---------- 覆盖 Docsify 默认样式 ---------- */
+
+/* 主体背景 + 字体 */
+body {
+  background: var(--umd-bg) !important;
+  font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif !important;
+  color: var(--umd-text) !important;
+}
+
+/* 内容卡片容器 —— 模拟原 .card 效果 */
+.app-content {
+  max-width: 1000px !important;
+  margin: 2rem auto !important;
+  background: var(--umd-card-bg) !important;
+  border-radius: 32px !important;
+  padding: 2.5rem 2.8rem !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06), 0 8px 20px rgba(0, 0, 0, 0.03) !important;
+  border: 1px solid var(--umd-border) !important;
+}
+
+/* ---------- 侧边栏样式 ---------- */
+.sidebar {
+  background: #faf8f6 !important;
+  border-right: 1px solid #ede8e1 !important;
+  padding-top: 1.5rem !important;
+}
+
+.sidebar-nav ul li a {
+  color: var(--umd-text) !important;
+  font-weight: 400 !important;
+  border-radius: 8px !important;
+  padding: 0.4rem 0.8rem !important;
+  transition: background 0.15s ease !important;
+}
+
+.sidebar-nav ul li a:hover {
+  background: var(--umd-accent-light) !important;
+  color: #1f1b2b !important;
+}
+
+.sidebar-nav ul li a.active {
+  background: var(--umd-accent-light) !important;
+  color: #1f1b2b !important;
+  font-weight: 600 !important;
+  border-left: 4px solid var(--umd-accent) !important;
+}
+
+/* ---------- 侧边栏 Logo ---------- */
+.app-name-link {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.8rem !important;
+  padding: 0.8rem 1rem !important;
+}
+
+.app-name-link img {
+  width: 40px !important;
+  height: 40px !important;
+  object-fit: contain !important;
+  border-radius: 50% !important;
+  background: #f0ede8 !important;
+  padding: 4px !important;
+}
+
+.app-name-link::before {
+  content: '' !important;
+}
+
+/* ---------- 标题样式 ---------- */
+.markdown-section h1 {
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  color: #1b1b26 !important;
+  padding-bottom: 0.8rem !important;
+  border-bottom: 2px solid #eae5df !important;
+  margin-bottom: 1.8rem !important;
+}
+
+.markdown-section h2 {
+  font-size: 1.35rem !important;
+  font-weight: 600 !important;
+  color: #1f1b2b !important;
+  margin-top: 2rem !important;
+  margin-bottom: 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.6rem !important;
+}
+
+/* h2 前面的数字装饰（类似原 .num） */
+.markdown-section h2::before {
+  content: '' !important;
+  display: none !important;
+}
+
+/* 但我们可以用另一种方式：在 Markdown 里手动写序号，或让 h2 自带样式 */
+.markdown-section h2 .num {
+  background: #dad2c6 !important;
+  color: #2d2838 !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: 30px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-right: 0.4rem !important;
+}
+
+/* ---------- 段落 & 列表 ---------- */
+.markdown-section p {
+  color: #2b2738 !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+}
+
+.markdown-section ul,
+.markdown-section ol {
+  padding-left: 1.5rem !important;
+  color: #2b2738 !important;
+}
+
+.markdown-section li {
+  margin-bottom: 0.5rem !important;
+}
+
+/* ---------- 强调块（类似原 .highlight-box） ---------- */
+.markdown-section blockquote {
+  background: var(--umd-highlight-bg) !important;
+  border-left: 5px solid var(--umd-accent) !important;
+  padding: 1.2rem 1.8rem !important;
+  border-radius: 18px !important;
+  margin: 1.2rem 0 !important;
+  color: #1d1a28 !important;
+  font-size: 0.98rem !important;
+  font-style: normal !important;
+}
+
+.markdown-section blockquote strong {
+  color: #1d1a28 !important;
+}
+
+/* ---------- 公告徽章（对应原 .notice-badge） ---------- */
+.umd-notice {
+  background: #eae3da !important;
+  color: #2f2a3d !important;
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+  padding: 0.3rem 1.2rem !important;
+  border-radius: 30px !important;
+  display: inline-block !important;
+  margin-bottom: 1.8rem !important;
+  letter-spacing: 0.3px !important;
+  border: 1px solid #d6cec2 !important;
+}
+
+/* ---------- 代码块 ---------- */
+.markdown-section pre {
+  background: var(--umd-highlight-bg) !important;
+  border-radius: 16px !important;
+  border: 1px solid #ede8e1 !important;
+}
+
+.markdown-section code {
+  font-family: 'SF Mono', 'JetBrains Mono', monospace !important;
+  background: var(--umd-accent-light) !important;
+  padding: 0.2rem 0.6rem !important;
+  border-radius: 6px !important;
+  font-size: 0.9rem !important;
+}
+
+/* ---------- 表格 ---------- */
+.markdown-section table {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  border: 1px solid #ede8e1 !important;
+}
+
+.markdown-section th {
+  background: var(--umd-accent-light) !important;
+  color: #1f1b2b !important;
+  font-weight: 600 !important;
+}
+
+.markdown-section td,
+.markdown-section th {
+  padding: 0.6rem 1.2rem !important;
+  border-color: #e4ddd5 !important;
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 700px) {
+  .app-content {
+    padding: 1.8rem !important;
+    margin: 1rem !important;
+    border-radius: 24px !important;
+  }
+  .markdown-section h1 {
+    font-size: 1.7rem !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .app-content {
+    padding: 1.2rem !important;
+    border-radius: 16px !important;
+  }
+  .markdown-section h2 {
+    font-size: 1.2rem !important;
+  }
+}
+
+/* ---------- 页脚 ---------- */
+.footer {
+  text-align: center !important;
+  padding: 1.2rem 0 0.4rem !important;
+  color: #5a5366 !important;
+  font-size: 0.85rem !important;
+  border-top: 1px solid #e4ddd5 !important;
+  margin-top: 2rem !important;
+}
+
+/* ---------- 搜索框 ---------- */
+.search input {
+  border-radius: 30px !important;
+  border: 1px solid #e2dbd2 !important;
+  background: #f5f1ec !important;
+  padding: 0.4rem 1.2rem !important;
+  font-size: 0.9rem !important;
+}
+
+.search input:focus {
+  outline: none !important;
+  border-color: var(--umd-accent) !important;
+  box-shadow: 0 0 0 3px rgba(184, 170, 160, 0.15) !important;
+}
